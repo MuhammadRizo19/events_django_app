@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<center>
+<br>	
+<h1>Hello {{request.user}}!
+ for events {{month}} {{year}}</h1>
+{{cal|safe}}
+<br><br>
+<br><br>
+<br><br>
+
+{% for message in messages %}     
+<div class="alert alert-success alert-dismissible w-50">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   {{message}}
+</div>
+{% endfor %}
+{% if user.is_authenticated %}
+  {{request.user}}
+{% else %}     
+   <div class="alert alert-warning alert-dismissible w-50">
+   <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   you are in Anonymous User mode now !!!
+ </div>
+{% endif %}
+</center>
+
+{% endblock %}

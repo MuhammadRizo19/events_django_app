@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-5">
+
+
+{% if form.errors %}     
+  <div class="alert alert-danger alert-dismissible w-50">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   {{message}}
+</div>
+{% endif %}
+<h2 class="my-2">Register !</h2>      
+<form action="{% url 'register' %}" method=POST class="w-50">
+   {% csrf_token%}
+   {{form.as_p}}
+   
+     
+   <button class="btn btn-success" type="submit" value="Submit"> Submit</button>
+</form>
+</div>
+{% endblock %}

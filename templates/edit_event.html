@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-5">
+<center>   
+   <h2 class="my-2">Edit ' {{event}} ' detail</h2>      
+      <form action="" method=POST>
+         {% csrf_token%}
+         <p>{{form.as_p}}</p>
+    
+         <button class="btn btn-success px-5" type="submit" value="Edit"> Edit </button>
+      </form>
+    
+</center>
+</div>
+{% endblock %}

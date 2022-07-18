@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-5">
+<center>
+{% if user.is_authenticated %}  
+{% for message in messages %}     
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  <strong>Great!</strong>{{message}}
+</div>
+{% endfor %}
+<h2 class="my-2">Add Venue To Database!</h2>      
+<form action="" method=POST>
+   {% csrf_token%}
+   <p>{{form.as_p}}</p>
+    
+   <button class="btn btn-success" type="submit" value="Submit"> Submit</button>
+</form>
+{% else %}
+  <div class="alert alert-success alert-dismissible w-50">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   Please Login in order to have more accessiblities <a class="btn btn-warning text-dark" aria-current="page" 
+          href="{% url 'login_user' %}"> Login </a>
+</div>
+{% endif %}
+
+</center>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-2">
+<center>
+ <h1 class="my-2">Venues</h1>
+<ul class="list-group rounded w-50">
+    {% for venue in venues %}
+    <li class="list-group-item d-flex justify-content-between"> <a href="{% url 'show_venue' venue.id %}" class=" text-decoration-none"> {{venue}} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg></a> 
+{% if user.is_authenticated %}
+<div class="d-flex"> <a href="{% url 'edit_venue' venue.id %}" class="btn btn-success btn-sm text-decoration-none mx-2">edit</a>  <a href="{% url 'delete_venue' venue.id %}" class="btn btn-danger btn-sm text-decoration-none"> delete</a></div>
+{% endif %}
+ </li>
+    {% endfor %}
+</ul>
+<br>
+{% if venues.has_previous %}
+
+    <a class="btn btn-primary" href="?page=1">first</a>
+    <a class="btn btn-primary" href="?page={{ venues.previous_page_number }}">previous</a>
+{% endif %}
+
+{% for i in nums %}
+    <a class="btn btn-info" href="?page{{forloop.counter}}">{{forloop.counter}}</a>
+{% endfor %}
+{% if venues.has_next %}
+    <a class="btn btn-primary" href="?page={{venues.next_page_number}}">next</a>
+    <a class="btn btn-primary" href="?page={{ venues.paginator.num_pages }}">last</a>
+{% endif %}
+
+</center>
+</div>  
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-5">
+<center>
+
+{% for message in messages %}     
+<div class="alert alert-success alert-dismissible w-50">
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+   {{message}}
+</div>
+{% endfor %}
+<h2 class="my-2">Login !</h2>      
+<form action="" method=POST class="w-50">
+   {% csrf_token%}
+   <div class="mb-3"> 
+    <label for="username" class="form-label">Username</label>
+    <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp">
+    </div>
+    <div class="mb-3">
+     <label for="password" class="form-label">Password</label>
+     <input type="password" name="password" class="form-control" id="password">
+    </div>
+     
+   <button class="btn btn-success" type="submit" value="Submit"> Submit</button>
+</form>
+</center>
+</div>
+{% endblock %}

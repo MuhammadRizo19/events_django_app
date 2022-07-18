@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container p-3">
+<br>	
+<div class="card">
+  <div class="card-header">
+    {{venue}}
+  </div>
+  <div class="card-body">
+  <ul>  
+    <li>{{venue.name}}</li>
+    <li>{{venue.address}}</li>
+    <li>{{venue.zip_code}}</li>
+    <li>{{venue.phone}}</li>
+    <li><a href="#">{{venue.web}}</a></li>
+  </ul>  
+  </div>
+</div>
+</div>
+
+{% endblock %}
