@@ -14,6 +14,10 @@
     <li>{{venue.zip_code}}</li>
     <li>{{venue.phone}}</li>
     <li><a href="#">{{venue.web}}</a></li>
+    <br>
+    {% if venue.venue_image %}
+    <img src="{{ venue.venue_image.url }}" width="500">
+    {% endif %}
   </ul>  
   </div>
 </div>
