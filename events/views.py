@@ -44,7 +44,7 @@ def edit_event(request, event_id):
 
 def edit_venue(request, venue_id):
 	venue = Venue.objects.get(pk=venue_id)
-	form = VenueForm(request.POST or None, instance=venue)
+	form = VenueForm(request.POST or None, request.FILES or None,instance=venue)
 	if form.is_valid():
 		form.save()
 		return redirect('all_venues')

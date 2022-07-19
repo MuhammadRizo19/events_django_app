@@ -4,7 +4,7 @@
 <div class="container p-5">
 <center>  
    <h2 class="my-2">Edit ' {{venues}} ' detail</h2>      
-      <form action="" method=POST>
+      <form action="" enctype="multipart/form-data" method=POST>
          {% csrf_token%}
          <p>{{form.as_p}}</p>
     
